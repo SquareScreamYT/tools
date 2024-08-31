@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Custom OpenMoji Colors</title>
+  <meta http-equiv='cache-control' content='no-cache'> 
+  <html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+  <meta http-equiv='expires' content='0'> 
+  <meta http-equiv='pragma' content='no-cache'>
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+  <!-- https://realfavicongenerator.net/ -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#f8fafc">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lato:wght@300&family=Noto+Color+Emoji:wght@400&display=swap');
+    @font-face {
+      font-family: 'SF Pro Rounded';
+      font-style: normal;
+      font-weight: 400;
+      src: url("https://raw.githubusercontent.com/SquareScreamYT/sf-fonts/master/SF-Pro-Rounded-Light.otf") format("opentype");
+    }
+    :root {
+      --bg-color: #ecfeff;
+      --text-color: #083344;
+      --bg-color-dark: #cffafe;
+      --bg-color-darker: #a5f3fc;
+      --bg-color-darkest: #67e8f9;
+      --border-color: #22d3ee;
+      --border-color-dark: #06b6d4;
+      --link-color: #818cf8;
+    }
+    html {
+      height: 100%;
+      width: 100%;
+      overflow-x:hidden
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Nunito", "SF Pro Rounded", "Apple Color Emoji", "Noto Color Emoji", "Lato", system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif, monospace;
+      margin: 0;
+      padding-left: 2vh;
+      padding-right: 2vh; 
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+      transition: background-color 0.3s ease;
+    }
+    #url {
+      font-family: "Nunito", "SF Pro Rounded", "Apple Color Emoji", "Noto Color Emoji", "Lato", system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif, monospace;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 25px;
+      border-width: 0;
+      background-color: var(--bg-color-dark);
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      outline: none;
+    }
+    #url:focus {
+      background-color: var(--bg-color-darker);
+      outline: none;
+    }
+    #emoji-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .emoji-box {
+      text-align: center;
+    }
+    .emoji-box div {
+      width: 40vw;
+      height: 40vw;
+      max-height: 200px;
+      max-width: 200px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .custom-color {
+      font-family: "Nunito", "SF Pro Rounded", "Apple Color Emoji", "Noto Color Emoji", "Lato", system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif, monospace;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 150px;
+      box-sizing: border-box;
+      border-radius: 25px;
+      border-width: 0;
+      background-color: var(--bg-color-dark);
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      outline: none;
+    }
+    .custom-color:focus {
+      background-color: var(--bg-color-darker);
+      outline: none;
+    }
+    #enter-button {
+      font-family: "Nunito", "SF Pro Rounded", "Apple Color Emoji", "Noto Color Emoji", "Lato", system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif, monospace;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 150px;
+      box-sizing: border-box;
+      border-radius: 25px;
+      border-width: 0;
+      background-color: var(--bg-color-dark);
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      outline: none;
+    }
+    #enter-button:hover {
+      background-color: var(--bg-color-darker);
+      outline: none;
+    }
+    #enter-button:active {
+      background-color: var(--bg-color-darkest);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom OpenMoji Colors</h1>
+
+  <p>Enter Unicode Codepoint in the format "[codepoint 1]-[codepoint 2]</p>
+
+  <input type="text" id="url" placeholder="example: 1F1F8-1F1EC" value="1F1F8-1F1EC">
+
+  <h2>Red, Dark Red</h2>
+
+  <input type="text" class="custom-color" id="red" placeholder="original: #ea5a47" value="#ea5a47">
+  <input type="text" class="custom-color" id="dark-red" placeholder="original: #d22f27" value="#d22f27">
+
+  <br>
+
+  <h2>Orange, Dark Orange</h2>
+  
+  <input type="text" class="custom-color" id="orange" placeholder="original: #f4aa41" value="#f4aa41">
+  <input type="text" class="custom-color" id="dark-orange" placeholder="original: #e27022" value="#e27022">
+
+  <br>
+
+  <h2>Yellow, Dark Yellow</h2>
+  
+  <input type="text" class="custom-color" id="yellow" placeholder="original: #fcea2b" value="#fcea2b">
+  <input type="text" class="custom-color" id="dark-yellow" placeholder="original: #f1b31c" value="#f1b31c">
+
+  <br>
+
+  <h2>Green, Dark Green</h2>
+  
+  <input type="text" class="custom-color" id="green" placeholder="original: #b1cc33" value="#b1cc33">
+  <input type="text" class="custom-color" id="dark-green" placeholder="original: #5c9e31" value="#5c9e31">
+
+  <br>
+
+  <h2>Blue, Dark Blue</h2>
+  
+  <input type="text" class="custom-color" id="blue" placeholder="original: #92d3f5" value="#92d3f5">
+  <input type="text" class="custom-color" id="dark-blue" placeholder="original: #61b2e4" value="#61b2e4">
+
+  <br>
+
+  <h2>Purple, Dark Purple</h2>
+  
+  <input type="text" class="custom-color" id="purple" placeholder="original: #b399c8" value="#b399c8">
+  <input type="text" class="custom-color" id="dark-purple" placeholder="original: #8967aa" value="#8967aa">
+
+  <br>
+
+  <h2>Pink, Dark Pink</h2>
+  
+  <input type="text" class="custom-color" id="pink" placeholder="original: #ffa7c0" value="#ffa7c0">
+  <input type="text" class="custom-color" id="dark-pink" placeholder="original: #e67a94" value="#e67a94">
+
+  <br>
+
+  <h2>Brown, Dark Brown</h2>
+  
+  <input type="text" class="custom-color" id="brown" placeholder="original: #a57939" value="#a57939">
+  <input type="text" class="custom-color" id="dark-brown" placeholder="original: #6a462f" value="#6a462f">
+
+  <br>
+
+  <h2>White, Light Gray, Gray, Dark Gray, Black</h2>
+  
+  <input type="text" class="custom-color" id="white" placeholder="original: #ffffff" value="#ffffff">
+  <input type="text" class="custom-color" id="light-gray" placeholder="original: #d0cfce" value="#d0cfce">
+  <input type="text" class="custom-color" id="gray" placeholder="original: #9b9b9a" value="#9b9b9a">
+  <input type="text" class="custom-color" id="dark-gray" placeholder="original: #3f3f3f" value="#3f3f3f">
+  <input type="text" class="custom-color" id="black" placeholder="original: #000000" value="#000000">
+
+  <br>
+
+  <h2>Click to Apply New Colors</h2>
+  
+  <button id="enter-button" onclick="create_svg()">Go!</button>
+  
+  <div id="emoji-container" style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <div class="emoji-box">
+      <div id="original-svg">
+        <img src="https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/1F1F8-1F1EC.svg">
+      </div>
+      <p>Original</p>
+    </div>
+    <div class="emoji-box">
+      <div id="custom-svg">
+        <img src="https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/1F1F8-1F1EC.svg">
+      </div>
+      <p>Custom</p>
+    </div>
+  </div>
+
+  <button id="enter-button" onclick="copy_svg()">Copy SVG</button>
+  <button id="enter-button" onclick="download_svg()">Download SVG</button>
+
+  <br>
+
+  <p>Created with &lt;3 by SquareScreamYT</p>
+
+  <p><a href="https://openmoji.org">Visit the OpenMoji Site!</a></p>
+
+  <script>
+    url = "https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/1F1F8-1F1EC.svg"
+
+    data = ""
+
+    fetch(url).then(d => d.text()).then(d => data = d)
+
+    function create_svg() {
+      // set url to unicode codepoint
+      url = "https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/" + document.getElementById("url").value + ".svg"
+      fetch(url).then(d => d.text()).then(d => data = d)
+
+      // set original svg
+      document.getElementById("original-svg").innerHTML = data
+
+      // replace colors with custom colors
+      // i forgor the svg colors were all uppercase 💀💀
+      data = data.replaceAll("#EA5A47", document.getElementById("red").value)
+      data = data.replaceAll("#D22F27", document.getElementById("dark-red").value)
+
+      data = data.replaceAll("#F4AA41", document.getElementById("orange").value)
+      data = data.replaceAll("#E27022", document.getElementById("dark-orange").value)
+
+      data = data.replaceAll("#FCEA2B", document.getElementById("yellow").value)
+      data = data.replaceAll("#F1B31C", document.getElementById("dark-yellow").value)
+
+      data = data.replaceAll("#B1CC33", document.getElementById("green").value)
+      data = data.replaceAll("#5C9E31", document.getElementById("dark-green").value)
+
+      data = data.replaceAll("#92D3F5", document.getElementById("blue").value)
+      data = data.replaceAll("#61B2E4", document.getElementById("dark-blue").value)
+
+      data = data.replaceAll("#B399C8", document.getElementById("purple").value)
+      data = data.replaceAll("#8967AA", document.getElementById("dark-purple").value)
+
+      data = data.replaceAll("#FFA7C0", document.getElementById("pink").value)
+      data = data.replaceAll("#E67A94", document.getElementById("dark-pink").value)
+
+      data = data.replaceAll("#A57939", document.getElementById("brown").value)
+      data = data.replaceAll("#6A462F", document.getElementById("dark-brown").value)
+
+      data = data.replaceAll("#FFFFFF", document.getElementById("white").value)
+      data = data.replaceAll("#D0CFCE", document.getElementById("light-gray").value)
+      data = data.replaceAll("#9B9B9A", document.getElementById("gray").value)
+      data = data.replaceAll("#3F3F3F", document.getElementById("dark-gray").value)
+      data = data.replaceAll("#000000", document.getElementById("black").value)
+
+      // just in case they were lowercase
+      data = data.replaceAll("#ea5a47", document.getElementById("red").value)
+      data = data.replaceAll("#d22f27", document.getElementById("dark-red").value)
+
+      data = data.replaceAll("#f4aa41", document.getElementById("orange").value)
+      data = data.replaceAll("#e27022", document.getElementById("dark-orange").value)
+
+      data = data.replaceAll("#fcea2b", document.getElementById("yellow").value)
+      data = data.replaceAll("#f1b31c", document.getElementById("dark-yellow").value)
+
+      data = data.replaceAll("#b1cc33", document.getElementById("green").value)
+      data = data.replaceAll("#5c9e31", document.getElementById("dark-green").value)
+
+      data = data.replaceAll("#92d3f5", document.getElementById("blue").value)
+      data = data.replaceAll("#61b2e4", document.getElementById("dark-blue").value)
+
+      data = data.replaceAll("#b399c8", document.getElementById("purple").value)
+      data = data.replaceAll("#8967aa", document.getElementById("dark-purple").value)
+
+      data = data.replaceAll("#ffa7c0", document.getElementById("pink").value)
+      data = data.replaceAll("#e67a94", document.getElementById("dark-pink").value)
+
+      data = data.replaceAll("#a57939", document.getElementById("brown").value)
+      data = data.replaceAll("#6a462f", document.getElementById("dark-brown").value)
+
+      data = data.replaceAll("#ffffff", document.getElementById("white").value)
+      data = data.replaceAll("#d0cfce", document.getElementById("light-gray").value)
+      data = data.replaceAll("#9b9b9a", document.getElementById("gray").value)
+      data = data.replaceAll("#3f3f3f", document.getElementById("dark-gray").value)
+      data = data.replaceAll("#000000", document.getElementById("black").value)
+
+      // just in case they used the #fff or #000
+      data = data.replaceAll("#fff", document.getElementById("white").value)
+      data = data.replaceAll("#000000", document.getElementById("black").value)
+
+      // set custom svg
+      document.getElementById("custom-svg").innerHTML = data
+    }
+
+    function copy_svg() {
+      // copy svg to clipboard
+      navigator.clipboard.writeText(data)
+    }
+
+    function download_svg() {
+      // download svg
+      var element = document.createElement("a");
+      element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(data));
+      element.setAttribute("download", "custom_openmoji.svg");
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+  </script>
+</body>
+</html>
