@@ -308,7 +308,8 @@
 
       // just in case they used the #fff or #000
       data = data.replaceAll("#fff", document.getElementById("white").value)
-      data = data.replaceAll("#000000", document.getElementById("black").value)
+      data = data.replaceAll("#FFF", document.getElementById("white").value)
+      data = data.replaceAll("#000", document.getElementById("black").value)
 
       // set custom svg
       document.getElementById("custom-svg").innerHTML = data
