@@ -125,12 +125,36 @@
       background-color: var(--bg-color-darkest);
       outline: none;
     }
+    #original-colors-button, #open-color-button, #enter-button {
+      font-family: "Nunito", "SF Pro Rounded", "Apple Color Emoji", "Noto Color Emoji", "Lato", system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif, monospace;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 150px;
+      box-sizing: border-box;
+      border-radius: 25px;
+      border-width: 0;
+      background-color: var(--bg-color-dark);
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      outline: none;
+    }
+
+    #original-colors-button:hover, #open-color-button:hover, #enter-button:hover {
+      background-color: var(--bg-color-darker);
+      outline: none;
+    }
+
+    #original-colors-button:active, #open-color-button:active, #enter-button:active {
+      background-color: var(--bg-color-darkest);
+      outline: none;
+    }
+
   </style>
 </head>
 <body>
   <h1>Custom OpenMoji Colors</h1>
 
-  <p>Enter Unicode Codepoint in the format "[codepoint 1]-[codepoint 2]</p>
+  <p>Enter Unicode Codepoint in the format "(U+)[codepoint 1]-(U+)[codepoint 2]"</p>
 
   <input type="text" id="url" placeholder="example: 1F1F8-1F1EC" value="1F1F8-1F1EC">
 
@@ -200,6 +224,13 @@
 
   <br>
 
+  <h2>Fill Color Templates</h2>
+
+  <button id="original-colors-button" onclick="fillOriginalColors()">Fill Original Colors</button>
+  <button id="open-color-button" onclick="fillOpenColors()">Fill Open Colors</button>
+
+  <br>
+
   <h2>Click to Apply New Colors</h2>
   
   <button id="enter-button" onclick="create_svg()">Go!</button>
@@ -237,7 +268,8 @@
 
     function create_svg() {
       // set url to unicode codepoint
-      url = "https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/" + document.getElementById("url").value + ".svg"
+      url = "https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/" + document.getElementById("url").value.replace(/[uU]\+?/g, '').replace(/\s+/g, '-') + ".svg"
+
       fetch(url).then(d => d.text()).then(d => data = d)
 
       // set original svg
@@ -306,9 +338,9 @@
       data = data.replaceAll("#3f3f3f", document.getElementById("dark-gray").value)
       data = data.replaceAll("#000000", document.getElementById("black").value)
 
-      // just in case they used the #fff or #000
-      data = data.replaceAll("#fff", document.getElementById("white").value)
+      // just in case they used the #fff or #000 or #FFF
       data = data.replaceAll("#FFF", document.getElementById("white").value)
+      data = data.replaceAll("#fff", document.getElementById("white").value)
       data = data.replaceAll("#000", document.getElementById("black").value)
 
       // set custom svg
@@ -329,6 +361,54 @@
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
+    }
+
+    function fillOriginalColors() {
+      document.getElementById("red").value = "#ea5a47";
+      document.getElementById("dark-red").value = "#d22f27";
+      document.getElementById("orange").value = "#f4aa41";
+      document.getElementById("dark-orange").value = "#e27022";
+      document.getElementById("yellow").value = "#fcea2b";
+      document.getElementById("dark-yellow").value = "#f1b31c";
+      document.getElementById("green").value = "#b1cc33";
+      document.getElementById("dark-green").value = "#5c9e31";
+      document.getElementById("blue").value = "#92d3f5";
+      document.getElementById("dark-blue").value = "#61b2e4";
+      document.getElementById("purple").value = "#b399c8";
+      document.getElementById("dark-purple").value = "#8967aa";
+      document.getElementById("pink").value = "#ffa7c0";
+      document.getElementById("dark-pink").value = "#e67a94";
+      document.getElementById("brown").value = "#a57939";
+      document.getElementById("dark-brown").value = "#6a462f";
+      document.getElementById("white").value = "#ffffff";
+      document.getElementById("light-gray").value = "#d0cfce";
+      document.getElementById("gray").value = "#9b9b9a";
+      document.getElementById("dark-gray").value = "#3f3f3f";
+      document.getElementById("black").value = "#000000";
+    }
+
+    function fillOpenColors() {
+      document.getElementById("red").value = "#ff6b6b";
+      document.getElementById("dark-red").value = "#fa5252";
+      document.getElementById("orange").value = "#ffa94d";
+      document.getElementById("dark-orange").value = "#ff922b";
+      document.getElementById("yellow").value = "#ffd43b";
+      document.getElementById("dark-yellow").value = "#fcc419";
+      document.getElementById("green").value = "#51cf66";
+      document.getElementById("dark-green").value = "#40c057";
+      document.getElementById("blue").value = "#4dabf7";
+      document.getElementById("dark-blue").value = "#339af0";
+      document.getElementById("purple").value = "#845ef7";
+      document.getElementById("dark-purple").value = "#7950f2";
+      document.getElementById("pink").value = "#ff8787";
+      document.getElementById("dark-pink").value = "#ff6b6b";
+      document.getElementById("brown").value = "#e8590c";
+      document.getElementById("dark-brown").value = "#d9480f";
+      document.getElementById("white").value = "#f8f9fa";
+      document.getElementById("light-gray").value = "#e9ecef";
+      document.getElementById("gray").value = "#ced4da";
+      document.getElementById("dark-gray").value = "#868e96";
+      document.getElementById("black").value = "#343a40";
     }
   </script>
 </body>
