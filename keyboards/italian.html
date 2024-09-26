@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Italian Keyboard</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lato:wght@300&family=Noto+Color+Emoji:wght@400&display=swap');
+    @font-face {
+      font-family: 'SF Pro Rounded';
+      font-style: normal;
+      font-weight: 400;
+      src: url("https://raw.githubusercontent.com/SquareScreamYT/sf-fonts/master/SF-Pro-Rounded-Light.otf") format("opentype");
+    }
+    :root {
+      --bg-color: #ecfeff;
+      --text-color: #083344;
+      --bg-color-dark: #cffafe;
+      --bg-color-darker: #a5f3fc;
+      --bg-color-darkest: #67e8f9;
+      --border-color: #22d3ee;
+      --border-color-dark: #06b6d4;
+      --link-color: #818cf8;
+    }
+    html {
+      height: 100%;
+      width: 100%;
+      overflow-x:hidden
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Nunito", "SF Pro Rounded", "Apple Color Emoji", "Noto Color Emoji", "Lato", system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif, monospace;
+      margin: 0;
+      padding-left: 2vh;
+      padding-right: 2vh; 
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+      transition: background-color 0.3s ease;
+    }
+    .keyboard {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .key {
+      font-family: "Nunito", "SF Pro Rounded", sans-serif;
+      margin: 5px;
+      padding: 10px;
+      width: 40px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border-width: 0;
+      background-color: var(--bg-color-dark);
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      outline: none;
+      cursor: pointer;
+    }
+    .key:hover {
+      background-color: var(--bg-color-darker);
+    }
+    .key:active {
+      background-color: var(--bg-color-darkest);
+    }
+    #textspace {
+      font-family: "Nunito", "SF Pro Rounded", sans-serif;
+      width: 100%;
+      height: 100px;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 5px;
+      border-width: 0;
+      background-color: var(--bg-color-dark);
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      outline: none;
+      resize: none;
+    }
+    .key:focus {
+      outline: none;
+    }
+    .key:active {
+      background-color: var(--bg-color-darkest);
+    }
+
+    .shortcut-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .shortcut-item {
+      background-color: var(--bg-color-dark);
+      padding: 5px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Italian Keyboard</h2>
+
+  <textarea id="textspace" rows="4" cols="50">Type here!</textarea>
+
+  <div class="keyboard">
+    <button class="key" data-char="à">à</button>
+    <button class="key" data-char="é">é</button>
+    <button class="key" data-char="è">è</button>
+    <button class="key" data-char="ê">ê</button>
+    <button class="key" data-char="î">î</button>
+    <button class="key" data-char="í">í</button>
+    <button class="key" data-char="ì">ì</button>
+    <button class="key" data-char="ó">ó</button>
+    <button class="key" data-char="ò">ò</button>
+    <button class="key" data-char="ú">ú</button>
+    <button class="key" data-char="ù">ù</button>
+  </div>
+  
+  <div class="keyboard">
+    <button class="key" data-char="À">À</button>
+    <button class="key" data-char="Â">Â</button>
+    <button class="key" data-char="É">É</button>
+    <button class="key" data-char="È">È</button>
+    <button class="key" data-char="Ê">Ê</button>
+    <button class="key" data-char="Î">Î</button>
+    <button class="key" data-char="Í">Í</button>
+    <button class="key" data-char="Ì">Ì</button>
+    <button class="key" data-char="Ó">Ó</button>
+    <button class="key" data-char="Ò">Ò</button>
+    <button class="key" data-char="Ú">Ú</button>
+    <button class="key" data-char="Ù">Ù</button>
+  </div>
+  
+  <div class="keyboard">
+    <button class="key" data-char="€">€</button>
+    <button class="key" data-char="«">«</button>
+    <button class="key" data-char="»">»</button>
+  </div>
+
+  <h2>Shortcuts</h2>
+
+  <p id="shortcut-p" class="shortcut-p"></p>
+
+  <h3>Made by SquareScreamYT</h3>
+  <h3><a href="https://www.lexilogos.com/keyboard/italian.htm">Inspired by Lexilogos' Italian Keyboard</a></h3>
+
+  <script>
+    const textspace = document.getElementById('textspace');
+    const keys = document.querySelectorAll('.key');
+  
+    const shortcuts = {
+      'a`': 'à', 'A`': 'À',
+      'e\'': 'é', 'E\'': 'É',
+      'e`': 'è', 'E`': 'È',
+      'i^': 'î', 'I^': 'Î',
+      'i\'': 'í', 'I\'': 'Í',
+      'i`': 'ì', 'I`': 'Ì',
+      'o\'': 'ó', 'O\'': 'Ó',
+      'o`': 'ò', 'O`': 'Ò',
+      'u\'': 'ú', 'U\'': 'Ú',
+      'u`': 'ù', 'U`': 'Ù',
+      'C=': '€', '<<': '«', '>>': '»'
+    };
+  
+    keys.forEach(key => {
+      key.addEventListener('click', () => {
+        const char = key.getAttribute('data-char');
+        insertAtCursor(textspace, char);
+      });
+    });
+  
+    textspace.addEventListener('input', (e) => {
+      const cursorPosition = textspace.selectionStart;
+      const text = textspace.value;
+      
+      if (cursorPosition >= 2) {
+        const lastTwoChars = text.slice(cursorPosition - 2, cursorPosition);
+        if (shortcuts[lastTwoChars]) {
+          const newText = text.slice(0, cursorPosition - 2) + shortcuts[lastTwoChars] + text.slice(cursorPosition);
+          textspace.value = newText;
+          textspace.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+        }
+      }
+    });
+  
+    function insertAtCursor(field, text) {
+      const startPos = field.selectionStart;
+      const endPos = field.selectionEnd;
+      field.value = field.value.substring(0, startPos) + text + field.value.substring(endPos, field.value.length);
+      field.selectionStart = field.selectionEnd = startPos + text.length;
+      field.focus();
+    }
+
+    function updateShortcutInfo() {
+      const shortcutP = document.getElementById('shortcut-p');
+      let shortcutInfo = '<div class="shortcut-grid">';
+      for (let [key, value] of Object.entries(shortcuts)) {
+        shortcutInfo += `<div class="shortcut-item">${key} → ${value}</div>`;
+      }
+      shortcutInfo += '</div>';
+      shortcutP.innerHTML = shortcutInfo;
+    }
+
+    updateShortcutInfo();
+  </script>
+  
+</body>
+</html>
